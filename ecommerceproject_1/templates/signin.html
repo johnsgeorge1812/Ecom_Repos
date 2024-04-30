@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div> 
+<img src="{% static 'images/sigin pic.jpg' %}" alt="wallpaper image" style="width:1450px; height:500px;">
+</div>
+<div class="container">
+<h1 class="text-center"> Welcome to E-store </h1>
+
+<form  class="text-center" action="/signin/" method="post">
+    {% csrf_token %}
+   <div class="form-group">
+    <label for="">Username</label>
+    <input type="text" id="username" name="username" placeholder="Enter Your Name" required><br>
+   </div>
+   <div class="form-group">
+    <label for="">Password:</label>
+    <input type="password" id="password1" name="password1" placeholder="Enter Your Password:"><br>
+   </div>
+    <div class="container" style="color:green">
+    <button type="submit">Login</button>
+    </div>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  <div class="container" style="background-color:aqua">
+    <button type="button" class="cancel">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+</div>
+{% endblock %}

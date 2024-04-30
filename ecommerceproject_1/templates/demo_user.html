@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 class="text-center">Welcome  {{fname}} {{lname}} , you have successfully logged in</h2>
+<div>
+    <img src="{% static 'images/demo.jpg' %}" alt="wallpaper image" style="width:1450px; height:500px;">
+</div>
+
+{% endblock %}

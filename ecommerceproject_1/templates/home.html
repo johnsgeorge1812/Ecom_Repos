@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if category %}
+<div>
+  <p>Our Products Category</p>
+</div>
+{% endif %}
+<div>
+  {% if category %}
+  <img src="{{category.image.url}}" style="height:600px;width:1250px;">
+</div>
+<div>
+  <h1>{{category.name}}</h1>
+  <p>{{category.desc}}</p>
+</div>
+{% else %}
+<div>
+  <img src="{% static 'images/wallpaer 2.jpg' %}" alt="wallpaper image" style="width:1450px; height:500px;">
+</div>
+<br>
+<div>
+  <h1 style="color:red;text-align:center">
+    Discover, Explore, and Shop: Your Ultimate Destination!!!!!!
+  </h1>
+  <h5 style="color:orange;text-align:center">Welcome to our E-Store app, where convenience meets variety! Browse through a wide selection of products from the comfort of your own home, whether you're looking for electronics, fashion, home goods, or more. With intuitive search and filter options, finding exactly what you need is a breeze. Enjoy seamless checkout and secure payment options for a hassle-free shopping experience. Stay updated on the latest promotions and deals, and receive personalized recommendations based on your preferences. Shop anytime, anywhere with our user-friendly E-Store app
+  </h5>
+</div>
+{% endif %}
+    <div class="row">
+      <div class="Container">
+        {{% for prod in products %}
+      </div>
+      <div class="Container">
+        <div class="raw justify-content-center">
+          <div class="col-sm-4 col-md-6">
+            <div class="card shadow" style="width: 15rem;">
+              <img src="{{prod.image.url}}" class="card-img-top" style="width:200px;height:200px; alt=" ...">
+              <div class="card-body text-center"><br>
+                <h5 class="card-title">{{prod.name}}</h5><br>
+                <p class="card-text">{{prod.price}}</p>
+                <a href="#" class="btn btn-success">Add to Cart</a>
+                <a href="#" class="btn btn-success">Buy now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}
